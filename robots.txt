@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fenixgadgetscare.github.io/fenixgadgetscare/sitemap.xml
