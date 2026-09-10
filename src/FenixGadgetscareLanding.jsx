@@ -1,87 +1,41 @@
-import { motion } from "framer-motion";
-import {
-  Smartphone,
-  Wrench,
-  Shield,
-  Truck,
-  CheckCircle,
-  Laptop,
-  Instagram,
-  Youtube,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, CalendarDays, Check, ChevronDown, Cpu, Headphones, Laptop, MapPin, Menu, Monitor, Phone, ShieldCheck, Smartphone, Sparkles, Tablet, Wrench, X } from "lucide-react";
+
+const WHATSAPP = "919566886679";
+const MAPS = "https://maps.app.goo.gl/EhvYQzZy8WRfv4Uj9";
+const services = [
+  [Smartphone, "iPhone & Mobile Repair", "Screen, battery, charging, camera, speaker and software concerns."],
+  [Laptop, "Laptop Repair", "Diagnosis and repair support for everyday laptops and notebooks."],
+  [Laptop, "MacBook Repair", "Service support for MacBook hardware and performance concerns."],
+  [Tablet, "iPad Repair", "Help with iPad display, battery, charging and other repair needs."],
+  [Monitor, "Desktop Repair", "Desktop troubleshooting, upgrades and repair assistance."],
+  [Cpu, "Chip-Level Repair", "Advanced board-level diagnostic and repair support where applicable."],
+  [Headphones, "Networking", "Basic networking and connectivity assistance for home or work setups."],
+];
+const waLink = (message) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
 export default function FenixGadgetscareLanding() {
-  return (
-    <div className="min-h-screen bg-white text-gray-900 relative">
-      {/* Hero Section */}
-      <section className="px-6 lg:px-20 py-24 bg-gradient-to-br from-gray-900 to-black text-white text-center">
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl lg:text-6xl font-bold mb-4">FENIX GADGETS CARE</motion.h1>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3, duration: 0.6 }} className="text-lg lg:text-2xl max-w-2xl mx-auto mb-8">Fast, Trusted & Expert Gadget Repair in Tirupur</motion.p>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.6 }} className="text-md lg:text-xl max-w-2xl mx-auto mb-10 opacity-80">Mobile & Laptop Service Center • Doorstep Repair • High-end Device Support</motion.p>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.6 }} className="flex gap-6 justify-center mt-8 items-center">
-          <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 2 }} className="bg-white/10 p-4 rounded-2xl backdrop-blur-md"><Smartphone size={50} /></motion.div>
-          <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 2.2 }} className="bg-white/10 p-4 rounded-2xl backdrop-blur-md"><Wrench size={50} /></motion.div>
-          <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 2.4 }} className="bg-white/10 p-4 rounded-2xl backdrop-blur-md"><Laptop size={50} /></motion.div>
-        </motion.div>
-        <motion.a href="https://wa.me/919566886679?text=Hi%20Fenix%20Gadgets%20Care%2C%20I%20need%20to%20repair%20my%20device.%0AName%3A%20_____%0ADevice%20Model%3A%20_____%0AIssue%3A%20_____%0ALocation%3A%20_____%0APickup%20Required%3A%20Yes%2FNo" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.6 }} className="inline-block mt-10 bg-yellow-400 text-black font-semibold px-8 py-3 rounded-xl shadow-lg hover:bg-yellow-300 transition">Chat on WhatsApp</motion.a>
-      </section>
-
-      {/* Stats Section */}
-      <section className="px-6 lg:px-20 py-16 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-        <div><p className="text-4xl font-bold text-yellow-500">10,000+</p><p className="text-gray-600">Devices Repaired</p></div>
-        <div><p className="text-4xl font-bold text-yellow-500">4.9★</p><p className="text-gray-600">Customer Rating</p></div>
-        <div><p className="text-4xl font-bold text-yellow-500">15+</p><p className="text-gray-600">Years Experience</p></div>
-        <div><p className="text-4xl font-bold text-yellow-500">100%</p><p className="text-gray-600">Quality Guaranteed</p></div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="px-6 lg:px-20 py-20 bg-gray-50">
-        <h2 className="text-3xl lg:text-5xl font-bold text-center mb-12">Our Top Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {[
-            { icon: <Smartphone size={42} />, title: "Mobile Repairs", desc: "Display, battery, mic, speaker, charging, motherboard & more." },
-            { icon: <Wrench size={42} />, title: "Laptop Repairs", desc: "Chip-level repair, SSD upgrade, OS installation, keyboard replacement." },
-            { icon: <Shield size={42} />, title: "Protection Plans", desc: "Affordable gadget protection & extended warranty plans." },
-            { icon: <Truck size={42} />, title: "Doorstep Pickup & Delivery", desc: "Free pickup & delivery anywhere in Tirupur." },
-            { icon: <CheckCircle size={42} />, title: "High-End Device Repair", desc: "Specialized repairs for iPhones, MacBooks, Gaming laptops." },
-          ].map((service, index) => (
-            <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition">
-              <div className="text-yellow-500 mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-gray-600">{service.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="px-6 lg:px-20 py-20 bg-white text-center">
-        <h2 className="text-3xl lg:text-5xl font-bold mb-6">Find Us on Google Maps</h2>
-        <p className="text-gray-600 mb-10 max-w-2xl mx-auto">Visit Fenix Gadgets Care at our service center in Tirupur.</p>
-        <div className="w-full h-96 rounded-2xl overflow-hidden shadow-lg mb-12">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.990000000000!2d77.3545000000!3d11.1084000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9070e00000000%3A0x0000000000000000!2sFenix%20Gadgets%20Care!5e0!3m2!1sen!2sin!4v1700000000001"
-            width="100%"
-            height="100%"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
-        </div>
-        <div className="flex justify-center gap-8 mb-12 text-4xl">
-          <a href="#" className="text-pink-600 hover:scale-110 transition"><Instagram size={40} /></a>
-          <a href="#" className="text-red-600 hover:scale-110 transition"><Youtube size={40} /></a>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="px-6 lg:px-20 py-20 bg-gradient-to-br from-yellow-400 to-yellow-500 text-black text-center rounded-t-3xl">
-        <h2 className="text-3xl lg:text-5xl font-bold mb-6">Need a Fast & Reliable Gadget Repair?</h2>
-        <p className="text-lg lg:text-2xl mb-8">We fix it with care — like it's our own.</p>
-        <a href="tel:+919566886679" className="bg-black text-white px-10 py-4 rounded-xl font-semibold text-lg shadow-md hover:bg-gray-800 transition">Call Now: 9566886679</a>
-      </section>
-
-      {/* Floating WhatsApp Button */}
-      <a href="https://wa.me/919566886679?text=Hi%20Fenix%20Gadgets%20Care%2C%20I%20need%20to%20repair%20my%20device.%0AName%3A%20_____%0ADevice%20Model%3A%20_____%0AIssue%3A%20_____%0ALocation%3A%20_____%0APickup%20Required%3A%20Yes%2FNo" target="_blank" className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-2xl text-3xl hover:scale-110 transition z-50">📱</a>
-    </div>
-  );
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [form, setForm] = useState({ name: "", phone: "", category: "", brand: "", model: "", issue: "", date: "", time: "", service: "", notes: "" });
+  const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const submitBooking = (e) => {
+    e.preventDefault();
+    const message = `Hello Fenix Gadgets Care, I would like to book a repair.\n\nName: ${form.name}\nPhone / WhatsApp: ${form.phone}\nDevice category: ${form.category}\nBrand: ${form.brand}\nModel: ${form.model}\nIssue: ${form.issue}\nPreferred date: ${form.date || "Not specified"}\nPreferred time: ${form.time || "Not specified"}\nPickup / drop-off: ${form.service || "Not specified"}\nNotes: ${form.notes || "None"}\n\nPlease contact me about this repair request.`;
+    window.open(waLink(message), "_blank", "noopener,noreferrer");
+  };
+  const quickWhatsApp = waLink("Hello Fenix Gadgets Care, I would like to know more about your services.");
+  return <main>
+    <a className="skip-link" href="#main-content">Skip to content</a>
+    <div className="topbar"><span>Tiruppur device service & repair support</span><a href="tel:+919566886679"><Phone size={14}/> 95668 86679</a></div>
+    <header className="site-header"><a className="brand" href="#home" aria-label="Fenix Gadgets Care home"><span className="brand-mark"><Wrench size={21}/></span><span>FENIX <b>GADGETS CARE</b><small>Repair · Protect · Extend</small></span></a><button className="menu-button" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X/> : <Menu/>}</button><nav className={menuOpen ? "open" : ""} aria-label="Main navigation">{[["Services", "#services"], ["Book repair", "#booking"], ["Protection", "#protection"], ["Location", "#location"]].map(([label, href]) => <a href={href} key={label} onClick={() => setMenuOpen(false)}>{label}</a>)}<a className="nav-call" href="tel:+919566886679"><Phone size={16}/> Call now</a></nav></header>
+    <section id="home" className="hero" aria-labelledby="hero-title"><div className="hero-grid"/><div className="hero-content" id="main-content"><p className="eyebrow"><Sparkles size={15}/> Multi-brand service centre · Tiruppur</p><h1 id="hero-title">Care for the tech<br/><em>you rely on.</em></h1><p className="hero-copy">Repair support for phones, laptops, tablets and desktops—with a simple way to book your enquiry on WhatsApp.</p><div className="hero-actions"><a className="button button-primary" href="#booking">Book a repair <ArrowRight size={18}/></a><a className="button button-ghost" href={quickWhatsApp} target="_blank" rel="noreferrer">WhatsApp us</a></div><div className="hero-points"><span><Check size={16}/> Convenient booking</span><span><Check size={16}/> Multi-brand support</span><span><Check size={16}/> Tiruppur</span></div></div><div className="hero-device" aria-hidden="true"><div className="device-glow"/><div className="device-card"><Smartphone size={74}/><div/><Laptop size={65}/><div/><Tablet size={53}/></div><p>Repair · Protect · Extend</p></div></section>
+    <section className="intro section"><p className="section-kicker">WHAT WE HELP WITH</p><h2>One place for your everyday tech.</h2><p>Tell us what’s happening with your device. We’ll receive your booking request directly on WhatsApp and can guide you on the next step.</p></section>
+    <section id="services" className="section services" aria-labelledby="services-title"><div className="section-heading"><div><p className="section-kicker">OUR SERVICES</p><h2 id="services-title">Service support<br/>for the devices you use.</h2></div><a href="#booking" className="text-link">Start a repair request <ArrowRight size={17}/></a></div><div className="service-grid">{services.map(([Icon, title, description]) => <article className="service-card" key={title}><span className="service-icon"><Icon size={25}/></span><h3>{title}</h3><p>{description}</p><a href="#booking" aria-label={`Book ${title}`}>Book enquiry <ArrowRight size={16}/></a></article>)}</div></section>
+    <section id="booking" className="booking section" aria-labelledby="booking-title"><div className="booking-copy"><p className="section-kicker">REPAIR BOOKING</p><h2 id="booking-title">Start with a few details.</h2><p>After you submit, a ready-to-send WhatsApp message opens with your repair request. No account or app download is required beyond WhatsApp.</p><div className="booking-steps"><span><b>1</b> Share device details</span><span><b>2</b> Pick a preferred time</span><span><b>3</b> Send on WhatsApp</span></div><a href="tel:+919566886679" className="phone-card"><Phone/><span>Prefer to speak?<small>Call 95668 86679</small></span><ArrowRight/></a></div><form className="booking-form" onSubmit={submitBooking}><h3>Book your repair</h3><p className="form-note">Fields marked * are required.</p><div className="form-grid"><label>Full name *<input required name="name" value={form.name} onChange={update} autoComplete="name" placeholder="Your name"/></label><label>Phone / WhatsApp *<input required type="tel" name="phone" value={form.phone} onChange={update} autoComplete="tel" inputMode="tel" placeholder="Your number"/></label><label>Device category *<select required name="category" value={form.category} onChange={update}><option value="">Select device</option><option>iPhone</option><option>Android mobile</option><option>Laptop</option><option>MacBook</option><option>iPad / Tablet</option><option>Desktop</option><option>Other</option></select><ChevronDown/></label><label>Brand *<input required name="brand" value={form.brand} onChange={update} placeholder="e.g., Apple, Samsung"/></label><label>Model *<input required name="model" value={form.model} onChange={update} placeholder="e.g., iPhone 13"/></label><label>Issue *<input required name="issue" value={form.issue} onChange={update} placeholder="e.g., screen not working"/></label><label>Preferred date<input type="date" name="date" value={form.date} onChange={update}/></label><label>Preferred time<input type="time" name="time" value={form.time} onChange={update}/></label><label className="full">Pickup / drop-off preference<select name="service" value={form.service} onChange={update}><option value="">Choose an option</option><option>I can visit the service centre</option><option>I would like pickup / drop-off information</option><option>Please call to discuss</option></select><ChevronDown/></label><label className="full">Additional notes<textarea name="notes" value={form.notes} onChange={update} rows="3" placeholder="Anything else we should know?"/></label></div><button className="button button-primary submit" type="submit">Send booking on WhatsApp <ArrowRight size={18}/></button><p className="privacy">Submitting opens WhatsApp with your details so you can review before sending.</p></form></section>
+    <section id="protection" className="section protection" aria-labelledby="protection-title"><div className="section-heading"><div><p className="section-kicker">DEVICE PROTECTION</p><h2 id="protection-title">Keep your device covered.</h2></div><p>Ask our team for plan availability and eligibility. Pricing is discussed directly based on your device.</p></div><div className="plan-grid"><article className="plan"><span className="plan-icon"><ShieldCheck/></span><p className="plan-label">ADLD PROTECTION PLAN</p><h3>For accidental & liquid damage.</h3><p>Explore device protection options for unexpected accidental or liquid damage concerns.</p><ul><li><Check/> Ask about device eligibility</li><li><Check/> Understand available protection options</li><li><Check/> Get support from our team</li></ul><a className="button button-outline" href={waLink("Hello Fenix Gadgets Care, I would like to enquire about the ADLD Protection Plan for my device.")} target="_blank" rel="noreferrer">Enquire on WhatsApp <ArrowRight size={17}/></a></article><article className="plan featured"><span className="plan-icon"><CalendarDays/></span><p className="plan-label">EXTENDED WARRANTY</p><h3>More time for peace of mind.</h3><p>Ask about extending device protection beyond the standard warranty period.</p><ul><li><Check/> Check plan availability</li><li><Check/> Discuss device eligibility</li><li><Check/> Get help choosing a plan</li></ul><a className="button button-light" href={waLink("Hello Fenix Gadgets Care, I would like to check Extended Warranty eligibility for my device.")} target="_blank" rel="noreferrer">Check eligibility <ArrowRight size={17}/></a></article></div></section>
+    <section className="why section" aria-labelledby="why-title"><div><p className="section-kicker">WHY FENIX GADGETS CARE</p><h2 id="why-title">Clear help, from enquiry to next step.</h2></div><div className="why-grid"><article><span>01</span><h3>Multi-brand focus</h3><p>Support for a wide range of phones, computers and tablets.</p></article><article><span>02</span><h3>Simple enquiries</h3><p>Send your booking request directly through WhatsApp.</p></article><article><span>03</span><h3>Local assistance</h3><p>Connect with our Tiruppur team for service guidance.</p></article></div></section>
+    <section id="location" className="location"><div className="location-copy"><p className="section-kicker">FIND US</p><h2>Fenix Gadgets Care,<br/><em>Tiruppur.</em></h2><p>Use Google Maps for directions to the service centre, or contact us before visiting.</p><div className="location-actions"><a className="button button-dark" href={MAPS} target="_blank" rel="noreferrer"><MapPin size={18}/> Get directions</a><a className="text-link" href="tel:+919566886679">Call 95668 86679</a></div></div><a className="map-card" href={MAPS} target="_blank" rel="noreferrer" aria-label="Open Fenix Gadgets Care location in Google Maps"><MapPin size={34}/><span>Open in Google Maps<small>Tiruppur, Tamil Nadu</small></span><ArrowRight/></a></section>
+    <section className="bottom-cta"><p>Need help with a device?</p><h2>Let’s get it looked at.</h2><a className="button button-primary" href="#booking">Book a repair <ArrowRight size={18}/></a></section>
+    <footer><div className="footer-brand"><a className="brand" href="#home"><span className="brand-mark"><Wrench size={21}/></span><span>FENIX <b>GADGETS CARE</b><small>Repair · Protect · Extend</small></span></a><p>Multi-brand device service & repair support in Tiruppur.</p></div><div><h3>Contact</h3><a href="tel:+919566886679">95668 86679</a><a href={quickWhatsApp} target="_blank" rel="noreferrer">WhatsApp us</a><a href={MAPS} target="_blank" rel="noreferrer">Google Maps</a></div><div><h3>Explore</h3><a href="#services">Services</a><a href="#booking">Repair booking</a><a href="#protection">Protection plans</a></div><p className="copyright">© {new Date().getFullYear()} Fenix Gadgets Care. All rights reserved.</p></footer><a className="whatsapp-float" href={quickWhatsApp} target="_blank" rel="noreferrer" aria-label="Chat with Fenix Gadgets Care on WhatsApp">WA</a>
+  </main>;
 }
